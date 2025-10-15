@@ -6,6 +6,48 @@
   <title>Website Kelas</title>
   <link rel="stylesheet" href="style.css">
 </head>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  // 🌟 Awal: sembunyikan isi dulu
+  body.style.opacity = 0;
+  menuItems.forEach(item => {
+    item.style.opacity = 0;
+    item.style.transform = "translateY(20px)";
+  });
+
+  // 🌈 Animasi saat halaman pertama kali muncul
+  setTimeout(() => {
+    body.style.transition = "opacity 1s ease";
+    body.style.opacity = 1;
+
+    menuItems.forEach((item, i) => {
+      setTimeout(() => {
+        item.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        item.style.opacity = 1;
+        item.style.transform = "translateY(0)";
+      }, 300 * i);
+    });
+  }, 200);
+
+  // 🎯 Efek klik: animasi dulu baru pindah halaman
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#")) {
+        e.preventDefault(); // tahan dulu biar bisa animasi
+        body.style.transition = "opacity 0.5s ease";
+        body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = href; // baru pindah
+        }, 400);
+      }
+    });
+  });
+});
+</script>
 <body>
 
   <!-- HEADER -->
@@ -17,18 +59,99 @@
 
   <!-- MENU GRID -->
   <div class="menu-grid">
-    <div class="menu-item">Instagram Kami<br><a href="https://www.instagram.com/tkj_1archive?igsh=M2lrMGNqZXBhOGN4">Kunjungi →</a></div>
-    <div class="menu-item">Anggota Kelas<br><a href="anggota.html">Lihat →</a></div>
-    <div class="menu-item">TikTok Kami<br><a href="https://www.tiktok.com/@xtkj_1skarapawa?_t=ZS-90PL2xrTVMz&_r=1">Kunjungi →</a></div>
-    <div class="menu-item">Pesan Anonim<br><a href="#">Mulai →</a></div>
+    <div class="menu-item">Instagram<br><a href="https://www.instagram.com/tkj_1archive?igsh=M2lrMGNqZXBhOGN4">See🫣</a></div>
+    <div class="menu-item">Anggota Kelas<br><a href="anggota.html">See🫣</a></div>
+    <div class="menu-item">TikTok<br><a href="https://www.tiktok.com/@xtkj_1skarapawa?_t=ZS-90PL2xrTVMz&_r=1">See🫣</a></div>
+    <div class="menu-item">***<br><a href="#">xxx</a></div>
+  </div>
+  
+  <div class="pembuat">
+    <h1>©WEB INI DIBUAT OLEH RICHARD UNTUK MEMBER XTKJ 1</h1>
+    
+    
   </div>
 
   <!-- BOTTOM BAR -->
   <div class="bottom-bar">
     <div class="bottom-item">Gallery</div>
     <div class="bottom-item">Menu</div>
-    <div class="bottom-item">Jadwal</div>
+    <div class="bottom-item"><a href="jadwal.html">jadwal</a></div>
   </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const header = document.querySelector("header");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const footer = document.querySelector(".bottom-bar");
+
+  // 🌟 SEMUA ELEMEN AWALNYA DISEMBUNYIKAN
+  body.style.opacity = 0;
+  header.style.opacity = 0;
+  if (footer) footer.style.opacity = 0;
+
+  menuItems.forEach(item => {
+    item.style.opacity = 0;
+    item.style.transform = "translateY(30px)";
+  });
+
+  // ✨ ANIMASI MASUK SAAT PERTAMA KALI MASUK
+  setTimeout(() => {
+    body.style.transition = "opacity 1s ease";
+    body.style.opacity = 1;
+  }, 100);
+
+  // Header muncul lebih dulu
+  setTimeout(() => {
+    header.style.transition = "opacity 1s ease, transform 0.8s ease";
+    header.style.opacity = 1;
+    header.style.transform = "translateY(0)";
+  }, 400);
+
+  // Menu muncul satu-satu
+  menuItems.forEach((item, i) => {
+    setTimeout(() => {
+      item.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+      item.style.opacity = 1;
+      item.style.transform = "translateY(0)";
+    }, 700 + i * 200);
+  });
+
+  // Footer muncul terakhir
+  if (footer) {
+    setTimeout(() => {
+      footer.style.transition = "opacity 1s ease, transform 0.8s ease";
+      footer.style.opacity = 1;
+      footer.style.transform = "translateY(0)";
+    }, 1500);
+  }
+
+  // 🖱️ ANIMASI KETIKA MENU DIKLIK
+  menuItems.forEach(item => {
+    item.addEventListener("click", e => {
+      // cari link di dalam menu-item
+      const link = item.querySelector("a");
+      if (link && link.href) {
+        e.preventDefault();
+
+        // Efek bounce (mantul dikit)
+        item.style.transition = "transform 0.2s ease";
+        item.style.transform = "scale(0.9)";
+        setTimeout(() => {
+          item.style.transform = "scale(1.1)";
+        }, 150);
+        setTimeout(() => {
+          item.style.transform = "scale(1)";
+        }, 300);
+
+        // Tunggu sedikit baru pindah halaman
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 450);
+      }
+    });
+  });
+});
+</script>
 
 </body>
 </html>

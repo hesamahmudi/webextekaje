@@ -30,20 +30,44 @@ header .banner { width: 70%; max-width: 300px; border-radius: 10px; }
   color: #00d1ff;
   text-decoration: none;
 }
+.pembuat {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.5em;
+  margin-top: 260px;
+  
+  
+}
 
-/* Bottom bar */
 .bottom-bar {
   display: flex;
   justify-content: space-around;
-  background-color: #0a1b2c;
-  padding: 10px 0;
+  background-color: #0b1033;
+  padding: 20px 0;
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
 }
 
 .bottom-item {
-  color: #ccc;
+  font-family: Arial, Helvetica, sans-serif; /* font bersih & umum */
+  color: lightgrey;
+  font-size: 24px;
+  font-weight: bold; /* bold biasa */
+}
+
+/* buat teks di dalam <a> */
+.bottom-item a {
+  color: lightgrey;
+  text-decoration: none;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* efek pas di-hover biar lebih hidup */
+.bottom-item a:hover {
+  color: #333;
 }
 
  /* Container grid untuk semua kartu */
@@ -53,4 +77,16 @@ header .banner { width: 70%; max-width: 300px; border-radius: 10px; }
     gap: 15px;
     padding: 20px;
     justify-items: center;
+}
+ * {
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.menu-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
 }
